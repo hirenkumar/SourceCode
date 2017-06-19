@@ -11,30 +11,31 @@ import UIKit
 class SampleTableViewCell: UITableViewCell
 {
     @IBOutlet var IvPhoto : UIImageView?=nil
-    @IBOutlet var lblTitle : UILabel?=nil
+    @IBOutlet var lblFruitName : UILabel?=nil
+     @IBOutlet var lblFruitDetail : UILabel?=nil
 
-    @IBOutlet var ivWidthConstraint : NSLayoutConstraint?
+   // @IBOutlet var ivWidthConstraint : NSLayoutConstraint?
     
-    init(style: UITableViewCellStyle, reuseIdentifier: String)
-    {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        // Initialization code
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool)
-    {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
+//    init(style: UITableViewCellStyle, reuseIdentifier: String)
+//    {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        // Initialization code
+//    }
+//
+//    required init(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        // Initialization code
+//    }
+//
+//    override func setSelected(selected: Bool, animated: Bool)
+//    {
+//        super.setSelected(selected, animated: animated)
+//        // Configure the view for the selected state
+//    }
     
     
 }

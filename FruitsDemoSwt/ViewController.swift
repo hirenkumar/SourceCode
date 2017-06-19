@@ -8,18 +8,162 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController
+{
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //self.appDelegate = UIApplication.sharedApplication().delegate;
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    var selectedindex: Int? = nil
 
+    var fruit = ["Apple.jpg","banana.jpg","Orange.jpg","straberry.jpg","Apple.jpg","banana.jpg","straberry.jpg","Orange.jpg"]
+    var fruitName = ["Apple", "Banaba", "Orange", "Straberry","Graps","Cherry","Berry","Pine apple"]
+    var fruitDetail = ["Red Apple", "Yellow Banaba", "Orange is Orange", "Pink Straberry","Green Graps","Pink Cherry","Balck Berry","Pine apple is nice"]
+    
+    @IBOutlet var tvCars : UITableView?
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "DetailSegue"
+        {
+//            let indexPath = tvCars.indexPathForSelectedRow().row+1
+            let indexPath = selectedindex;
+            // NSLog("index....%d", indexPath!)
+            ((segue.destinationViewController) as DetailViewController).index=indexPath
+            
+        }
+    }
+    
+    class User: NSObject {
+        let name: String
+//        let detail: String
+//        let image: String
+        
+        var section: Int?
+        
+        init(name: String) {
+            self.name = name
+            
+        }
+    }
+    
+    // custom type to represent table sections
+    class Section {
+        var users: [User] = []
+        
+        func addUser(user: User) {
+            self.users.append(user)
+        }
+    }
+    
+   // let names = ["Apple", "Banaba", "Orange", "Straberry","Graps","Cherry","Berry","Pine apple"]
+    
+    // `UIKit` convenience class for sectioning a table
+    let collation = UILocalizedIndexedCollation.currentCollation()
+        as UILocalizedIndexedCollation
+    
+    // table sections
+    var sections: [Section] {
+        // return if already initialized
+        if self._sections != nil {
+            return self._sections!
+        }
+        
+        // create users from the name list
+        var users: [User] = names.map { name in
+            var user = User(name: name)
+            user.section = self.collation.sectionForObject(user, collationStringSelector: "name")
+            return user
+        }
+        
+        // create empty sections
+        var sections = [Section]()
+        for i in 0..<self.collation.sectionIndexTitles.count {
+            sections.append(Section())
+        }
+        
+        // put each user in a section
+        for user in users {
+            sections[user.section!].addUser(user)
+        }
+        
+        // sort each section
+        for section in sections {
+            section.users = self.collation.sortedArrayFromArray(section.users, collationStringSelector: "name") as [User]
+        }
+        
+        self._sections = sections
+        
+        return self._sections!
+        
+    }
+    var _sections: [Section]?
+    
+    // table view data source
+    
+     func numberOfSectionsInTableView(tableView: UITableView)
+        -> Int {
+            return self.sections.count
+    }
+    
+   func tableView(tableView: UITableView,
+        numberOfRowsInSection section: Int)
+        -> Int {
+            return self.sections[section].users.count
+    }
+    
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath indexPath: NSIndexPath)
+        -> UITableViewCell {
+            let user = self.sections[indexPath.section].users[indexPath.row]
+            
+//            let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath) as UITableViewCell
+            
+            var cell : SampleTableViewCell! = tableView.dequeueReusableCellWithIdentifier("Cell") as SampleTableViewCell
+            if(cell == nil)
+            {
+                cell = NSBundle.mainBundle().loadNibNamed("Cell", owner: self, options: nil)[0] as SampleTableViewCell;
+            }
+
+            cell.lblFruitName?.text = user.name
+            return cell
+    }
+    
+    /* section headers
+    appear above each `UITableView` section */
+   func tableView(tableView: UITableView,titleForHeaderInSection section: Int)-> String {
+            // do not display empty `Section`s
+            if !self.sections[section].users.isEmpty {
+                return self.collation.sectionTitles[section] as String
+            }
+            return ""
+    }
+    
+    /* section index titles
+    displayed to the right of the `UITableView` */
+    func sectionIndexTitlesForTableView(tableView: UITableView)-> [AnyObject] {
+            return self.collation.sectionIndexTitles
+    }
+    
+    func tableView(tableView: UITableView,sectionForSectionIndexTitle title: String,atIndex index: Int)-> Int {
+            return self.collation.sectionForSectionIndexTitleAtIndex(index)
+    }
+   
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+   {
+    return 80.0
+    
+    }
+    
 
 }
 

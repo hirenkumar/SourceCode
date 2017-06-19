@@ -16,14 +16,31 @@ class DetailViewController: UIViewController
 //        // Custom initialization
 //    }
     
-    var index: Int? = nil
-    @IBOutlet var ivDisplayImage : UIImageView
+    var fruitName = ["Apple", "Banaba", "Orange", "Straberry","Graps","Cherry","Berry","Pine apple"]
+    var fruitDetail = ["Red Apple", "Yellow Banaba", "Orange is Orange", "Pink Straberry","Green Graps","Pink Cherry","Balck Berry","Pine apple is nice"]
+    
+     var index: Int?=nil
+     var tilte: String? = nil
+     var tilteDetail: String? = nil
+    
+    @IBOutlet var lblFruitName : UILabel?=nil
+    @IBOutlet var lblFruitDetail : UILabel?=nil
+    
     override func viewDidLoad()
     {
         
         super.viewDidLoad()
-        let strImageName="\(index).jpg"
-        self.ivDisplayImage.image=UIImage(named : "\(index).jpg")
+       // let strImageName="\(index).jpg"
+        
+        // NSLog("index....%d", index!)
+        
+        
+        let strFruitName = fruitName[1] as String
+        let strFruitDetail = fruitDetail[1] as String
+        
+        lblFruitName?.text=strFruitName
+         lblFruitDetail?.text=strFruitDetail
+        //self.ivDisplayImage.image=UIImage(named : "\(index).jpg")
         // Do any additional setup after loading the view.
     }
 
