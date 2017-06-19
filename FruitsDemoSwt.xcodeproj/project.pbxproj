@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9998B3461EF7ACAB005883AA /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998B3451EF7ACAB005883AA /* ViewController2.swift */; };
+		9998B34A1EF7E0B5005883AA /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998B3491EF7E0B5005883AA /* ViewController3.swift */; };
 		99C01AFA1A53BFEC00A050B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C01AF91A53BFEC00A050B1 /* AppDelegate.swift */; };
 		99C01AFC1A53BFEC00A050B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C01AFB1A53BFEC00A050B1 /* ViewController.swift */; };
 		99C01AFF1A53BFEC00A050B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C01AFD1A53BFEC00A050B1 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		9998B3451EF7ACAB005883AA /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		9998B3491EF7E0B5005883AA /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		99C01AF41A53BFEC00A050B1 /* FruitsDemoSwt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitsDemoSwt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C01AF81A53BFEC00A050B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99C01AF91A53BFEC00A050B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				99C01B021A53BFEC00A050B1 /* LaunchScreen.xib */,
 				99C01AF71A53BFEC00A050B1 /* Supporting Files */,
 				9998B3451EF7ACAB005883AA /* ViewController2.swift */,
+				9998B3491EF7E0B5005883AA /* ViewController3.swift */,
 			);
 			path = FruitsDemoSwt;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				9998B3461EF7ACAB005883AA /* ViewController2.swift in Sources */,
 				99C01B281A53C8C500A050B1 /* DetailViewController.swift in Sources */,
+				9998B34A1EF7E0B5005883AA /* ViewController3.swift in Sources */,
 				99C01B291A53C8C500A050B1 /* SampleTableViewCell.swift in Sources */,
 				99C01AFC1A53BFEC00A050B1 /* ViewController.swift in Sources */,
 				99C01AFA1A53BFEC00A050B1 /* AppDelegate.swift in Sources */,
